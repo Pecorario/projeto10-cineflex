@@ -52,10 +52,16 @@ export default function SeatsPage({ isLoading, setIsLoading, setOrder }) {
     } else if (!isAvailable) {
       alert('Esse assento não está disponível');
     } else {
-      const newSeats = selectedSeats.filter(item => item !== id);
-      const newInfos = infos.filter(item => item.idAssento !== id);
-      setSelectedSeats(newSeats);
-      setInfos(newInfos);
+      if (
+        window.confirm(
+          'Você gostaria, realmente, de remover este assento e apagar os dados salvos?'
+        )
+      ) {
+        const newSeats = selectedSeats.filter(item => item !== id);
+        const newInfos = infos.filter(item => item.idAssento !== id);
+        setSelectedSeats(newSeats);
+        setInfos(newInfos);
+      }
     }
   }
 

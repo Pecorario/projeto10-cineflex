@@ -5,6 +5,14 @@ import * as S from './style';
 export default function SuccessPage({ isLoading, order }) {
   const navigate = useNavigate();
 
+  function formatCpf(v) {
+    v = v.replace(/\D/g, '');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    return v;
+  }
+
   function goHome() {
     navigate('/');
   }
@@ -44,7 +52,7 @@ export default function SuccessPage({ isLoading, order }) {
                   <p>Comprador - Poltrona {item.seatNumber}</p>
                 </strong>
                 <p>Nome: {item.name}</p>
-                <p>CPF: {item.cpf}</p>
+                <p>CPF: {formatCpf(item.cpf)}</p>
               </S.TextContainer>
             ))}
           </S.BuyersContainer>

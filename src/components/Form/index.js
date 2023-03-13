@@ -1,14 +1,6 @@
 import * as S from './style';
 
 export default function Form({ seats, infos, setInfos, handleSubmit }) {
-  function formatCpf(v) {
-    v = v.replace(/\D/g, '');
-    v = v.replace(/(\d{3})(\d)/, '$1.$2');
-    v = v.replace(/(\d{3})(\d)/, '$1.$2');
-    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    return v;
-  }
-
   function handleChangeName(id, value) {
     const nameToBeChanged = infos.find(item => item.idAssento === id);
     const idxNameToBeChanged = infos.findIndex(item => item.idAssento === id);
@@ -29,7 +21,7 @@ export default function Form({ seats, infos, setInfos, handleSubmit }) {
     const newCpf = {
       idAssento: cpfToBeChanged.idAssento,
       nome: cpfToBeChanged.nome,
-      cpf: formatCpf(value)
+      cpf: value
     };
 
     const oldInfos = [...infos];
@@ -61,8 +53,8 @@ export default function Form({ seats, infos, setInfos, handleSubmit }) {
             data-test="client-cpf"
             value={info.cpf}
             onChange={e => handleChangeCPF(info.idAssento, e.target.value)}
-            minlength={14}
-            maxlength={14}
+            minlength={11}
+            maxlength={11}
             required
           />
         </div>
