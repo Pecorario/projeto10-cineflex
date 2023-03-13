@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 const ResetStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -44,6 +44,11 @@ const ResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-`
 
-export default ResetStyle
+	::-webkit-scrollbar {
+		width: 0;
+	}
+
+`;
+
+export default ResetStyle;

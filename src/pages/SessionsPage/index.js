@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
-import styled from 'styled-components';
 
-import FooterSessions from '../../components/FooterSessions';
+import Footer from '../../components/Footer';
 import Session from '../../components/Session';
 
-export default function SessionsPage() {
-  const [isLoading, setIsLoading] = useState(false);
+import * as S from './style';
+
+export default function SessionsPage({ isLoading, setIsLoading }) {
   const [selectedMovie, setSelectedMovie] = useState(undefined);
 
   const { idFilme } = useParams();
@@ -33,7 +33,7 @@ export default function SessionsPage() {
   }, []);
 
   return (
-    <PageContainer>
+    <S.PageContainer>
       Selecione o horário
       {!isLoading && selectedMovie !== undefined && (
         <>
@@ -42,24 +42,9 @@ export default function SessionsPage() {
               <Session key={session.id} session={session} />
             ))}
           </div>
-          <FooterSessions movie={selectedMovie} />
+          <Footer movie={selectedMovie} />
         </>
       )}
-    </PageContainer>
+    </S.PageContainer>
   );
 }
-
-const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-family: 'Roboto';
-  font-size: 24px;
-  text-align: center;
-  color: #293845;
-  margin-top: 30px;
-  padding-bottom: 120px;
-  padding-top: 70px;
-  div {
-    margin-top: 20px;
-  }
-`;

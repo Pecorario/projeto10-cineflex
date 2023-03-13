@@ -1,22 +1,6 @@
 import styled from 'styled-components';
 
-export default function FooterSeats({ selectedSession }) {
-  return (
-    <FooterContainer>
-      <div>
-        <img src={selectedSession.movie.posterURL} alt="poster" />
-      </div>
-      <div>
-        <p>{selectedSession.movie.title}</p>
-        <p>
-          {selectedSession.day.weekday} - {selectedSession.day.date}
-        </p>
-      </div>
-    </FooterContainer>
-  );
-}
-
-const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   width: 100%;
   height: 120px;
   background-color: #c3cfd9;
@@ -46,6 +30,7 @@ const FooterContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 0;
     p {
       text-align: left;
       &:nth-child(2) {
