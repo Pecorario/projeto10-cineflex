@@ -13,8 +13,6 @@ export default function SeatsPage({ isLoading, setIsLoading, setOrder }) {
   const [selectedSession, setSelectedSession] = useState(undefined);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [infos, setInfos] = useState([]);
-  // const [name, setName] = useState('');
-  // const [cpf, setCpf] = useState('');
 
   const navigate = useNavigate();
   const { idSessao } = useParams();
@@ -143,10 +141,6 @@ export default function SeatsPage({ isLoading, setIsLoading, setOrder }) {
             </S.CaptionItem>
           </S.CaptionContainer>
           <Form
-            // name={name}
-            // setName={setName}
-            // cpf={cpf}
-            // setCpf={setCpf}
             seats={selectedSession?.seats}
             infos={infos}
             setInfos={setInfos}
