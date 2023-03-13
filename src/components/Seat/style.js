@@ -12,24 +12,27 @@ export const SeatItem = styled.div`
   margin: 5px 3px;
 
   ${({ isAvailable }) =>
-    isAvailable
-      ? css`
-          border: 1px solid #808f9d;
-          background-color: #c3cfd9;
+    isAvailable &&
+    css`
+      border: 1px solid #808f9d;
+      background-color: #c3cfd9;
 
-          :hover {
-            cursor: pointer;
-            filter: brightness(0.95);
-          }
-        `
-      : css`
-          border: 1px solid #f7c52b;
-          background-color: #fbe192;
+      :hover {
+        cursor: pointer;
+        filter: brightness(0.95);
+      }
+    `}
 
-          :hover {
-            cursor: not-allowed;
-          }
-        `}
+  ${({ isAvailable }) =>
+    !isAvailable &&
+    css`
+      border: 1px solid #f7c52b;
+      background-color: #fbe192;
+
+      :hover {
+        cursor: not-allowed;
+      }
+    `}
 
   ${({ isSelected }) =>
     isSelected &&

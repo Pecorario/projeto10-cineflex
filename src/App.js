@@ -3,8 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 import axios from 'axios';
 
-import styled from 'styled-components';
-
 import HomePage from './pages/HomePage';
 import SeatsPage from './pages/SeatsPage';
 import SessionsPage from './pages/SessionsPage';

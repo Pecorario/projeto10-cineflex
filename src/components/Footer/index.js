@@ -17,7 +17,7 @@ export default function Footer({
 
         {selectedSession && (
           <p>
-            {selectedSession.day.weekday} - {selectedSession.day.date}
+            {selectedSession.day.weekday} - {selectedSession.name}
           </p>
         )}
       </div>
